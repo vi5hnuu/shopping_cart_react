@@ -1,10 +1,24 @@
+import Cart from './Cart';
 import styles from './Header.module.css'
+import ReactDOM from 'react-dom';
+import { useState } from 'react';
 
 function Header(props) {
+  const [showCart, setShowCart] = useState(false)
+
+
+  function showCartHandler() {
+    setShowCart(true);
+  }
+  function closeCartHandler() {
+    setShowCart(false);
+  }
+
   return <header className={styles["header-container"]}>
+    {showCart && ReactDOM.createPortal(<Cart onClose={closeCartHandler} />, document.querySelector('body'))}
     <h1>Shop-Mart</h1>
     <div className={styles['header-actions']}>
-      <button className={styles['cart-btn']}>
+      <button onClick={showCartHandler} className={styles['cart-btn']}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 20 20'

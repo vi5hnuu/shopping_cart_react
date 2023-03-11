@@ -1,39 +1,40 @@
 import './App.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Components/Header';
 import heroImage from './assets/hero_image.jpg'
 import Recipies from './Components/Recipies';
+import cartContext from './store/cart-context';
 
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Sushi',
-    description: 'Finest fish and veggies',
-    price: 22.99,
-  },
-  {
-    id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
-    price: 16,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    price: 12.99,
-  },
-  {
-    id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
-    price: 18.99,
-  },
-];
+const dummy_recipies = [{
+  id: 'm1',
+  name: 'Sushi',
+  description: 'Finest fish and veggies',
+  price: 22.99,
+},
+{
+  id: 'm2',
+  name: 'Schnitzel',
+  description: 'A german specialty!',
+  price: 16,
+},
+{
+  id: 'm3',
+  name: 'Barbecue Burger',
+  description: 'American, raw, meaty',
+  price: 12.99,
+},
+{
+  id: 'm4',
+  name: 'Green Bowl',
+  description: 'Healthy...and green...',
+  price: 18.99,
+}]
 function App() {
+  const ctx = useContext(cartContext)
+
   return (
     <React.Fragment>
-      <Header count='10' />
+      <Header count={ctx.items.length} />
       <div className='hero-container'>
         <div className='hero-image-container'>
           <img src={heroImage} alt='hero' />
@@ -48,7 +49,7 @@ function App() {
         <h3 className='recipe-container_title'>
           Delicious Food
         </h3>
-        <Recipies recipies={DUMMY_MEALS} />
+        <Recipies recipies={dummy_recipies} />
       </section>
       <footer>
         &copy; copyright 2023 (vishnu kumar)

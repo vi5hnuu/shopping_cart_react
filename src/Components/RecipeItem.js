@@ -1,25 +1,24 @@
+import { useContext } from 'react';
+import cartContext from '../store/cart-context';
+import Amount from './Amount';
+import RecipeForm from './RecipeForm';
 import styles from './RecipeItem.module.css'
 
 function RecipeItem(props) {
+  const ctx = useContext(cartContext)
+
+  function addToCarthandler(times) {
+    const it = { id: props.id, times, name: props.name, amount: props.price }
+    ctx.addItem(it)
+  }
+
   return <li className={styles['recipe-item']}>
     <div className={styles['recipe-detail']}>
       <h3>{props.name}</h3>
       <p className={styles['recipe-discription']}>{props.discription}</p>
-      <p className={styles['recipe-price']}>
-        <span className={styles['recipe-price-currency']}>$</span>
-        <span className={styles['recipe-price-amount']}>{props.price.toFixed(2)}</span>
-      </p>
+      <Amount currency='$' amount={props.price} />
     </div>
-    <div className={styles['recipe-action_container']}>
-      <div className={styles['recipe-control']}>
-        <span>Amount</span>
-        <input type="number" min='1' />
-      </div>
-      <div className={styles['recipe-actions']}>
-        <button className={styles['btn-sub']}>-</button>
-        <button className={styles['btn-add']}>+</button>
-      </div>
-    </div>
+    <RecipeForm onAdd={addToCarthandler} />
   </li>
 }
 export default RecipeItem;
