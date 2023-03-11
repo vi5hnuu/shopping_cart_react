@@ -1,0 +1,45 @@
+.header-container {
+  background-color: #1b4332;
+  padding: 1.75rem 4.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container h1 {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  color: #d8f3dc;
+  letter-spacing: 2px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  background-color: #2d6a4f;
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+  gap: 2.5rem;
+  border-radius: 50px;
+}
+.cart-btn:hover {
+  background-color: #52b788;
+  transition: all 0.5s;
+}
+.cart-btn svg {
+  width: 23px;
+  color: #fff;
+}
+.cart-btn span {
+  font-size: 1.5rem;
+  background-color: #b7e4c7;
+  border-radius: 15px;
+  padding: 0.5rem 1.5rem;
+}

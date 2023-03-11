@@ -1,0 +1,17 @@
+.recipe-list {
+  border-radius: 5px;
+  height: 65rem;
+  list-style: none;
+  overflow-y: scroll;
+}
+.recipe-list::-webkit-scrollbar {
+  width: 5px;
+}
+.recipe-list::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 50px;
+}
+.recipe-list::-webkit-scrollbar-thumb {
+  background-color: #2d6a4f;
+  border-radius: 50px;
+}
