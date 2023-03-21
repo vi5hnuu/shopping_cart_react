@@ -36,6 +36,8 @@ function cartReducer(pState, action) {
     })
 
     return { items: uitems, totalAmount: newTotalAmount }
+  } else if (action.type === 'CLEAR') {
+    return { items: [], totalAmount: 0 }
   }
   return defaultState
 }
@@ -49,12 +51,15 @@ function CartProvider(props) {
   function removeFromCartHandler(id, times) {
     dispatchAction({ type: 'REMOVE', data: { id, times } })
   }
-
+  function clearCartHandler() {
+    dispatchAction({ type: 'CLEAR' })
+  }
   const cart = {
     items: state.items,
     totalAmount: state.totalAmount,
     addItem: addToCartHandler,
-    removeItem: removeFromCartHandler
+    removeItem: removeFromCartHandler,
+    clearCart: clearCartHandler
   }
   return <cartContext.Provider value={cart}>
     {props.children}
