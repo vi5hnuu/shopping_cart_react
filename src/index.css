@@ -27,3 +27,8 @@ body {
   background-color: #2d6a4f;
   border-radius: 50px;
 }
+
+button:disabled {
+  background-color: #9fa0a0 !important;
+  color: #c4c0c0;
+}

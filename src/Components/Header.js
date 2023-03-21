@@ -1,7 +1,8 @@
 import Cart from './Cart';
 import styles from './Header.module.css'
 import ReactDOM from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import order_box from './../assets/order_box.png'
 
 function countCompress(count) {
   if (count < 1000) {
@@ -26,6 +27,10 @@ function Header(props) {
     {showCart && ReactDOM.createPortal(<Cart onClose={closeCartHandler} />, document.querySelector('body'))}
     <h1>Shop-Mart</h1>
     <div className={styles['header-actions']}>
+      <button disabled='true' type='button' className={styles['orders-btn']}>
+        <img src={order_box} alt='orders icon' />
+        Orders
+      </button>
       <button onClick={showCartHandler} className={styles['cart-btn']}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
