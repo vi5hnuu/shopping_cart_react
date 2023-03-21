@@ -5,6 +5,7 @@ import heroImage from './assets/hero_image.jpg'
 import Recipies from './Components/Recipies';
 import cartContext from './store/cart-context';
 import { initializeApp } from "firebase/app";
+import stockContext from './store/stock-context';
 
 //////////////////////////
 const firebaseConfig = {
@@ -18,36 +19,15 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 /////////////////////////
 
-const dummy_recipies = [{
-  id: 'm1',
-  name: 'Sushi',
-  description: 'Finest fish and veggies',
-  price: 22.99,
-},
-{
-  id: 'm2',
-  name: 'Schnitzel',
-  description: 'A german specialty!',
-  price: 16,
-},
-{
-  id: 'm3',
-  name: 'Barbecue Burger',
-  description: 'American, raw, meaty',
-  price: 12.99,
-},
-{
-  id: 'm4',
-  name: 'Green Bowl',
-  description: 'Healthy...and green...',
-  price: 18.99,
-}]
 function App() {
-  const ctx = useContext(cartContext)
+  const cartctx = useContext(cartContext)
+  const stockctx = useContext(stockContext)
+
+
 
   return (
     <React.Fragment>
-      <Header count={ctx.items.length} />
+      <Header count={cartctx.items.length} />
       <div className='hero-container'>
         <div className='hero-image-container'>
           <img src={heroImage} alt='hero' />
@@ -62,7 +42,7 @@ function App() {
         <h3 className='recipe-container_title'>
           Delicious Food
         </h3>
-        <Recipies recipies={dummy_recipies} />
+        <Recipies recipies={stockctx.items} />
       </section>
       <footer>
         &copy; copyright 2023 (vishnu kumar)

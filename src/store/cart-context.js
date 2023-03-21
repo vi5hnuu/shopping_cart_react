@@ -6,5 +6,6 @@ const cartContext = React.createContext({
   addItem: (item) => { },
   removeItem: (id, times) => { }
 })
+cartContext.displayName = 'Cart-provider'
 
 export default cartContext;
