@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
-  min-height: 35rem;
+  /* min-height: 35rem; */
   max-height: 55rem;
   list-style: none;
   overflow-y: scroll;

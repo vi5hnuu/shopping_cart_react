@@ -1,11 +1,19 @@
 import Cart from './Cart';
 import styles from './Header.module.css'
 import ReactDOM from 'react-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+function countCompress(count) {
+  if (count < 1000) {
+    return count
+  } else if (count < 1000000) {
+    return `${count / 1000}K`
+  } else {
+    return `${count / 1000000}M`
+  }
+}
 function Header(props) {
   const [showCart, setShowCart] = useState(false)
-
 
   function showCartHandler() {
     setShowCart(true);
@@ -26,7 +34,7 @@ function Header(props) {
         >
           <path d='M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z' />
         </svg>
-        <span>{props.count}</span>
+        <span>{countCompress(props.count)}</span>
       </button>
     </div>
   </header>

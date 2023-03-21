@@ -1,13 +1,13 @@
 .cart-container {
   position: absolute;
   left: 50%;
-  top: 50vh;
+  top: 15rem;
   z-index: 1000;
   padding: 2.5rem;
   width: 65rem;
   max-width: 95%;
 
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%);
   background-color: #52b788;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,

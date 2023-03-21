@@ -4,6 +4,19 @@ import Header from './Components/Header';
 import heroImage from './assets/hero_image.jpg'
 import Recipies from './Components/Recipies';
 import cartContext from './store/cart-context';
+import { initializeApp } from "firebase/app";
+
+//////////////////////////
+const firebaseConfig = {
+  apiKey: "AIzaSyBBFm1EjMoLuomavxPqdoxT3aHeupVnWJ8",
+  authDomain: "shop-mart-a77ed.firebaseapp.com",
+  projectId: "shop-mart-a77ed",
+  storageBucket: "shop-mart-a77ed.appspot.com",
+  messagingSenderId: "381970593301",
+  appId: "1:381970593301:web:2c50cd4993736520f2401c"
+};
+initializeApp(firebaseConfig);
+/////////////////////////
 
 const dummy_recipies = [{
   id: 'm1',

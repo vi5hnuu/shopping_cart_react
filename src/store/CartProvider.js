@@ -9,15 +9,15 @@ function cartReducer(pState, action) {
   console.log("Use Reducer");
   if (action.type === 'ADD') {
     const uItems = [...pState.items]
-    console.log(uItems);
+    // console.log(uItems);
     const exists = uItems.find(item => item.id === action.item.id)
     if (exists) {
       exists.times = +exists.times + +action.item.times
-      console.log(exists.times);
+      // console.log(exists.times);
     } else {
       uItems.push(action.item)
     }
-    console.log(uItems);
+    // console.log(uItems);
     return { items: uItems, totalAmount: pState.totalAmount + action.item.times * action.item.amount }
   } else if (action.type === 'REMOVE') {
     let uitems = [...pState.items]
